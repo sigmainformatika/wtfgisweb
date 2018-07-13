@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/shptestBlokIUPKab_BombanaNew_regionPolygon_1.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-5.22866462194,120.85643266],[-4.22494862194,122.789906639]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        var overlay_GoogleSatellite_0 = L.tileLayer('http://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}', {
+            opacity: 1.0
+        });
+        overlay_GoogleSatellite_0.addTo(map);
+        map.addLayer(overlay_GoogleSatellite_0);
+        function pop_shptestBlokIUPKab_BombanaNew_regionPolygon_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>NOMOR_BLOK</strong><br />' + (feature.properties['NOMOR_BLOK'] !== null ? Autolinker.link(String(feature.properties['NOMOR_BLOK'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>KABUPATEN</strong><br />' + (feature.properties['KABUPATEN'] !== null ? Autolinker.link(String(feature.properties['KABUPATEN'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>NAMA_PERUS</strong><br />' + (feature.properties['NAMA_PERUS'] !== null ? Autolinker.link(String(feature.properties['NAMA_PERUS'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>NO_SK</strong><br />' + (feature.properties['NO_SK'] !== null ? Autolinker.link(String(feature.properties['NO_SK'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>TAHUN</strong><br />' + (feature.properties['TAHUN'] !== null ? Autolinker.link(String(feature.properties['TAHUN'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>PEJABAT_PE</strong><br />' + (feature.properties['PEJABAT_PE'] !== null ? Autolinker.link(String(feature.properties['PEJABAT_PE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>KODE_CNC</strong><br />' + (feature.properties['KODE_CNC'] !== null ? Autolinker.link(String(feature.properties['KODE_CNC'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>SERTIFIKAT</strong><br />' + (feature.properties['SERTIFIKAT'] !== null ? Autolinker.link(String(feature.properties['SERTIFIKAT'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>NO_SERTIFI</strong><br />' + (feature.properties['NO_SERTIFI'] !== null ? Autolinker.link(String(feature.properties['NO_SERTIFI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>MASA_BERLA</strong><br />' + (feature.properties['MASA_BERLA'] !== null ? Autolinker.link(String(feature.properties['MASA_BERLA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>MASA_BERAK</strong><br />' + (feature.properties['MASA_BERAK'] !== null ? Autolinker.link(String(feature.properties['MASA_BERAK'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>LUAS_WIL_S</strong><br />' + (feature.properties['LUAS_WIL_S'] !== null ? Autolinker.link(String(feature.properties['LUAS_WIL_S'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>LOKASI</strong><br />' + (feature.properties['LOKASI'] !== null ? Autolinker.link(String(feature.properties['LOKASI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>BAHAN_GALI</strong><br />' + (feature.properties['BAHAN_GALI'] !== null ? Autolinker.link(String(feature.properties['BAHAN_GALI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>JENIS_KEGI</strong><br />' + (feature.properties['JENIS_KEGI'] !== null ? Autolinker.link(String(feature.properties['JENIS_KEGI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>KW</strong><br />' + (feature.properties['KW'] !== null ? Autolinker.link(String(feature.properties['KW'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>ALAMAT</strong><br />' + (feature.properties['ALAMAT'] !== null ? Autolinker.link(String(feature.properties['ALAMAT'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>NO_TELP</strong><br />' + (feature.properties['NO_TELP'] !== null ? Autolinker.link(String(feature.properties['NO_TELP'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>NO_FAX</strong><br />' + (feature.properties['NO_FAX'] !== null ? Autolinker.link(String(feature.properties['NO_FAX'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>EMAIL</strong><br />' + (feature.properties['EMAIL'] !== null ? Autolinker.link(String(feature.properties['EMAIL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>PEMILIK</strong><br />' + (feature.properties['PEMILIK'] !== null ? Autolinker.link(String(feature.properties['PEMILIK'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>MASALAH</strong><br />' + (feature.properties['MASALAH'] !== null ? Autolinker.link(String(feature.properties['MASALAH'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>STATUS</strong><br />' + (feature.properties['STATUS'] !== null ? Autolinker.link(String(feature.properties['STATUS'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>KETERANGAN</strong><br />' + (feature.properties['KETERANGAN'] !== null ? Autolinker.link(String(feature.properties['KETERANGAN'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_shptestBlokIUPKab_BombanaNew_regionPolygon_1_0() {
+            return {
+                pane: 'pane_shptestBlokIUPKab_BombanaNew_regionPolygon_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.498039215686)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(36,100,146,0.498039215686)',
+            }
+        }
+        map.createPane('pane_shptestBlokIUPKab_BombanaNew_regionPolygon_1');
+        map.getPane('pane_shptestBlokIUPKab_BombanaNew_regionPolygon_1').style.zIndex = 401;
+        map.getPane('pane_shptestBlokIUPKab_BombanaNew_regionPolygon_1').style['mix-blend-mode'] = 'normal';
+        var layer_shptestBlokIUPKab_BombanaNew_regionPolygon_1 = new L.geoJson(json_shptestBlokIUPKab_BombanaNew_regionPolygon_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_shptestBlokIUPKab_BombanaNew_regionPolygon_1',
+            onEachFeature: pop_shptestBlokIUPKab_BombanaNew_regionPolygon_1,
+            style: style_shptestBlokIUPKab_BombanaNew_regionPolygon_1_0,
+        });
+        bounds_group.addLayer(layer_shptestBlokIUPKab_BombanaNew_regionPolygon_1);
+        map.addLayer(layer_shptestBlokIUPKab_BombanaNew_regionPolygon_1);
+        setBounds();
+        </script>
+    </body>
+</html>
